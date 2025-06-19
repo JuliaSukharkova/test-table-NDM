@@ -1,0 +1,31 @@
+<table>
+  <thead>
+    <tr>
+      <th (click)="sortBy('address')">
+        Адрес назначения
+        <span *ngIf="sortedColumn === 'address'">
+          {{ sortDirection === 'asc' ? '▲' : '▼' }}
+        </span>
+      </th>
+      <th (click)="sortBy('gateway')">
+        Шлюз
+        <span *ngIf="sortedColumn === 'gateway'">
+          {{ sortDirection === 'asc' ? '▲' : '▼' }}
+        </span>
+      </th>
+      <th (click)="sortBy('interface')">
+        Интерфейс
+        <span *ngIf="sortedColumn === 'interface'">
+          {{ sortDirection === 'asc' ? '▲' : '▼' }}
+        </span>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let route of routes">
+      <td>{{ route.address }}{{ route.mask }}</td>
+      <td>{{ route.gateway }}</td>
+      <td>{{ route.interface }}</td>
+    </tr>
+  </tbody>
+</table>
